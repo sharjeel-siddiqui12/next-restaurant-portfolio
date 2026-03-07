@@ -7,7 +7,7 @@ const cards = [
   {
     icon: Clock,
     title: 'Opening Hours',
-    lines: ['Mon–Fri: 12PM – 11PM', 'Sat–Sun: 11AM – 12AM'],
+    lines: ['Mon\u2013Fri: 12PM \u2013 11PM', 'Sat\u2013Sun: 11AM \u2013 12AM'],
   },
   {
     icon: Phone,
@@ -45,12 +45,16 @@ export function FeatureCards() {
           <motion.div
             key={card.title}
             variants={itemVariants}
-            className="bg-dawat-card border-t-2 border-t-gold rounded-lg p-8 text-center"
+            className="luxury-card rounded-xl p-10 text-center group transition-all duration-500 relative overflow-hidden"
           >
-            <card.icon className="w-8 h-8 text-gold mx-auto mb-4" />
+            {/* Top gold line */}
+            <div className="absolute top-0 left-1/4 right-1/4 h-px" style={{ background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)' }} />
+            <div className="w-14 h-14 rounded-full border border-gold/20 flex items-center justify-center mx-auto mb-5 group-hover:border-gold/40 transition-colors duration-500">
+              <card.icon className="w-6 h-6 text-gold/80 group-hover:text-gold transition-colors duration-500" />
+            </div>
             <h3 className="font-cormorant text-2xl font-semibold text-cream mb-3">{card.title}</h3>
             {card.lines.map((line, i) => (
-              <p key={i} className="font-sans text-sm text-cream-muted">{line}</p>
+              <p key={i} className="font-sans text-sm text-cream-muted/70">{line}</p>
             ))}
           </motion.div>
         ))}

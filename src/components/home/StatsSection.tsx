@@ -46,29 +46,39 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
 
 export function StatsSection() {
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-28 overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=60)' }}
       />
-      <div className="absolute inset-0 bg-[#0A0705]/90" />
+      <div className="absolute inset-0 bg-[#0A0705]/92" />
+      {/* Top and bottom gold lines */}
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent)' }} />
+      <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent)' }} />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12"
         >
           {stats.map((stat, i) => (
-            <div key={stat.label} className="text-center relative">
-              <p className="font-cormorant text-5xl md:text-7xl lg:text-[96px] font-semibold text-gold leading-none mb-2">
+            <div key={stat.label} className="text-center relative group">
+              <p
+                className="font-cormorant text-5xl md:text-7xl lg:text-[90px] font-semibold leading-none mb-3"
+                style={{
+                  background: 'linear-gradient(180deg, #E4C46E 0%, #C9A84C 60%, #9A7A2E 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
                 <CountUp target={stat.value} suffix={stat.suffix} />
               </p>
-              <p className="font-sans text-sm text-cream-muted uppercase tracking-wider">{stat.label}</p>
+              <p className="font-sans text-xs text-cream-muted/60 uppercase tracking-[0.25em] font-medium">{stat.label}</p>
               {i < stats.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 -translate-y-1/2 w-px h-16 bg-gold/20" />
+                <div className="hidden md:block absolute top-1/2 -right-4 lg:-right-6 -translate-y-1/2 w-px h-16 bg-gradient-to-b from-transparent via-gold/20 to-transparent" />
               )}
             </div>
           ))}

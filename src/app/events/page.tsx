@@ -10,7 +10,7 @@ import { Calendar, Clock } from 'lucide-react'
 const badgeColors: Record<string, string> = {
   'SOLD OUT': 'bg-crimson text-cream',
   'LIMITED SEATS': 'bg-orange-800 text-cream',
-  'BOOK NOW': 'bg-gold text-dawat-bg',
+  'BOOK NOW': 'text-dawat-bg',
   'FREE ENTRY': 'bg-green-800 text-cream',
   'SEASONAL': 'bg-dawat-card text-gold border border-gold/30',
 }
@@ -38,10 +38,11 @@ export default function EventsPage() {
       />
 
       {/* Events Grid */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <SectionLabel>What&apos;s Coming</SectionLabel>
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-gold/[0.02] rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <div className="text-center mb-20">
+            <SectionLabel centered>What&apos;s Coming</SectionLabel>
             <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-cream">
               Upcoming Events
             </h2>
@@ -59,7 +60,7 @@ export default function EventsPage() {
                 key={event.id}
                 variants={itemVariants}
                 whileHover={{ y: -8 }}
-                className="group bg-dawat-card rounded-xl overflow-hidden border border-transparent hover:border-gold/30 transition-all duration-500"
+                className="group luxury-card rounded-xl overflow-hidden"
               >
                 <div className="relative aspect-[3/2] overflow-hidden">
                   <Image
@@ -69,18 +70,26 @@ export default function EventsPage() {
                     className="object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-700"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
+                  {/* Inner border on image */}
+                  <div className="absolute inset-0 border border-gold/10 pointer-events-none" />
                   {/* Category badge */}
-                  <span className="absolute top-4 left-4 font-sans text-[10px] uppercase tracking-wider font-medium bg-gold/90 text-dawat-bg px-3 py-1 rounded-full">
+                  <span
+                    className="absolute top-4 left-4 font-sans text-[10px] uppercase tracking-[0.15em] font-semibold text-dawat-bg px-3.5 py-1.5 rounded-full"
+                    style={{ background: 'linear-gradient(135deg, #C9A84C, #E4C46E)' }}
+                  >
                     {event.category}
                   </span>
                   {/* Status badge */}
-                  <span className={`absolute top-4 right-4 font-sans text-[10px] uppercase tracking-wider font-medium px-3 py-1 rounded-full ${badgeColors[event.badge] || 'bg-dawat-card text-cream'}`}>
+                  <span
+                    className={`absolute top-4 right-4 font-sans text-[10px] uppercase tracking-wider font-semibold px-3.5 py-1.5 rounded-full ${badgeColors[event.badge] || 'bg-dawat-card text-cream'}`}
+                    style={event.badge === 'BOOK NOW' ? { background: 'linear-gradient(135deg, #C9A84C, #E4C46E)' } : undefined}
+                  >
                     {event.badge}
                   </span>
                 </div>
 
                 {/* Date bar */}
-                <div className="bg-gold/10 px-5 py-2.5 flex items-center gap-4">
+                <div className="bg-gold/[0.06] px-5 py-3 flex items-center gap-4 border-t border-gold/[0.08]">
                   <span className="flex items-center gap-1.5 font-sans text-xs text-gold">
                     <Calendar className="w-3.5 h-3.5" /> {event.date}
                   </span>
@@ -89,11 +98,11 @@ export default function EventsPage() {
                   </span>
                 </div>
 
-                <div className="p-5">
+                <div className="p-6">
                   <h3 className="font-cormorant text-2xl font-semibold text-cream mb-2">{event.title}</h3>
-                  <p className="font-sans text-sm text-cream-muted font-light leading-relaxed mb-4">{event.description}</p>
-                  <button className="font-sans text-xs uppercase tracking-[0.15em] font-medium text-gold border border-gold/40 px-5 py-2 rounded-full hover:bg-gold hover:text-dawat-bg transition-all duration-300">
-                    Register Interest
+                  <p className="font-sans text-sm text-cream-muted font-light leading-relaxed mb-5">{event.description}</p>
+                  <button className="btn-luxury-outline font-sans text-[10px] uppercase tracking-[0.2em] font-semibold px-6 py-2.5 rounded-full">
+                    <span className="relative z-10">Register Interest</span>
                   </button>
                 </div>
               </motion.div>
@@ -103,8 +112,10 @@ export default function EventsPage() {
       </section>
 
       {/* Private Events */}
-      <section className="py-24 bg-dawat-section">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="relative py-28 bg-dawat-section overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent)' }} />
+        <div className="absolute bottom-40 left-0 w-[400px] h-[400px] bg-gold/[0.02] rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -115,23 +126,24 @@ export default function EventsPage() {
             <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-cream leading-tight mb-6">
               Host Your Special Occasion With Us
             </h2>
+            <div className="w-16 h-px mb-6" style={{ background: 'linear-gradient(90deg, rgba(201,168,76,0.6), transparent)' }} />
             <p className="font-sans text-cream-muted font-light leading-relaxed mb-8">
               From intimate family gatherings to grand wedding celebrations, Dawat Inn offers tailored
               packages with bespoke menus, elegant décor, and impeccable service.
             </p>
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3.5 mb-10">
               {services.map((s) => (
                 <li key={s} className="flex items-center gap-3">
-                  <div className="w-2 h-2 rounded-full bg-gold" />
-                  <span className="font-sans text-cream-muted">{s}</span>
+                  <div className="w-1.5 h-1.5 rotate-45 bg-gold" />
+                  <span className="font-sans text-cream-muted font-light">{s}</span>
                 </li>
               ))}
             </ul>
             <a
               href="/contact"
-              className="inline-block font-sans uppercase tracking-[0.15em] text-xs font-medium bg-gold text-dawat-bg px-8 py-3.5 rounded-full hover:bg-gold-light transition-colors"
+              className="btn-luxury font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-10 py-4 rounded-full inline-block"
             >
-              Plan Your Event
+              <span className="relative z-10">Plan Your Event</span>
             </a>
           </motion.div>
           <motion.div
@@ -148,8 +160,10 @@ export default function EventsPage() {
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
+            <div className="absolute inset-0 border border-gold/10 rounded-xl pointer-events-none" />
           </motion.div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent)' }} />
       </section>
     </main>
   )

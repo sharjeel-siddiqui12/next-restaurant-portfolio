@@ -23,17 +23,18 @@ export default function MenuPage() {
       />
 
       {/* Category Tabs */}
-      <section className="sticky top-20 z-30 bg-[#0A0705]/95 backdrop-blur-md border-b border-dawat-border">
+      <section className="sticky top-20 z-30 backdrop-blur-xl border-b border-gold/[0.08]" style={{ background: 'rgba(10,7,5,0.92)', backdropFilter: 'blur(20px) saturate(180%)' }}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex gap-2 overflow-x-auto scrollbar-hide">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActive(cat.id)}
-              className={`relative whitespace-nowrap font-sans text-xs uppercase tracking-[0.15em] font-medium px-5 py-2 rounded-full transition-all duration-300 ${
+              className={`relative whitespace-nowrap font-sans text-[10px] uppercase tracking-[0.2em] font-semibold px-6 py-2.5 rounded-full transition-all duration-300 ${
                 active === cat.id
-                  ? 'bg-gold text-dawat-bg'
-                  : 'text-cream-muted hover:text-cream border border-dawat-border'
+                  ? 'text-dawat-bg'
+                  : 'text-cream-muted hover:text-cream border border-gold/[0.12] hover:border-gold/30'
               }`}
+              style={active === cat.id ? { background: 'linear-gradient(135deg, #C9A84C, #E4C46E)' } : undefined}
             >
               {cat.label}
             </button>
@@ -42,8 +43,10 @@ export default function MenuPage() {
       </section>
 
       {/* Menu Grid */}
-      <section className="py-16">
-        <div className="max-w-5xl mx-auto px-6">
+      <section className="relative py-20 overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute top-40 left-0 w-[500px] h-[500px] bg-gold/[0.015] rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-5xl mx-auto px-6 relative">
           <AnimatePresence mode="wait">
             <motion.div
               key={active}
@@ -66,22 +69,26 @@ export default function MenuPage() {
       </section>
 
       {/* Private Dining CTA */}
-      <section className="py-16 bg-dawat-section">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <SectionLabel>Exclusive</SectionLabel>
+      <section className="relative py-20 bg-dawat-section overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent)' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gold/[0.02] rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-6 text-center relative">
+          <SectionLabel centered>Exclusive</SectionLabel>
           <h2 className="font-cormorant text-3xl md:text-5xl font-semibold text-cream mb-4">
             Book a Private Dining Experience
           </h2>
-          <p className="font-sans text-cream-muted font-light max-w-xl mx-auto mb-8">
+          <div className="w-16 h-px mx-auto mb-6" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent)' }} />
+          <p className="font-sans text-cream-muted font-light max-w-xl mx-auto mb-10">
             Enjoy a bespoke 7-course meal prepared tableside by our head chef in our elegant private dining room.
           </p>
           <Link
             href="/contact"
-            className="inline-block font-sans uppercase tracking-[0.15em] text-xs font-medium bg-gold text-dawat-bg px-8 py-3.5 rounded-full hover:bg-gold-light transition-colors"
+            className="btn-luxury font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-10 py-4 rounded-full inline-block"
           >
-            Enquire Now
+            <span className="relative z-10">Enquire Now</span>
           </Link>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent)' }} />
       </section>
     </main>
   )

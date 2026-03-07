@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 import { GoldDivider } from '@/components/ui/GoldDivider'
 import { PageHero } from '@/components/shared/PageHero'
-import { Star, Instagram, Facebook, Shield, Gem, Landmark } from 'lucide-react'
+import { Star, Shield, Gem, Landmark } from 'lucide-react'
 
 const timeline = [
   { year: '1998', title: 'Founded in Lahore', description: 'Dawat Inn opened its doors on Food Street, Old Lahore, with a dream to revive Mughal-era recipes.' },
@@ -49,8 +49,10 @@ export default function AboutPage() {
       />
 
       {/* Story Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="relative py-28 overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-gold/[0.02] rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative">
           {/* Image Grid */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -59,18 +61,17 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
             className="grid grid-cols-2 gap-4"
           >
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
-              <Image src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Interior" fill className="object-cover" sizes="25vw" />
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden mt-8">
-              <Image src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Cuisine" fill className="object-cover" sizes="25vw" />
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden -mt-8">
-              <Image src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80" alt="Grill" fill className="object-cover" sizes="25vw" />
-            </div>
-            <div className="relative aspect-[3/4] rounded-xl overflow-hidden">
-              <Image src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Dishes" fill className="object-cover" sizes="25vw" />
-            </div>
+            {[
+              { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', alt: 'Interior', mt: '' },
+              { src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80', alt: 'Cuisine', mt: 'mt-8' },
+              { src: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80', alt: 'Grill', mt: '-mt-8' },
+              { src: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80', alt: 'Dishes', mt: '' },
+            ].map((img, i) => (
+              <div key={i} className={`relative aspect-[3/4] rounded-xl overflow-hidden group ${img.mt}`}>
+                <Image src={img.src} alt={img.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="25vw" />
+                <div className="absolute inset-0 border border-gold/10 rounded-xl pointer-events-none" />
+              </div>
+            ))}
           </motion.div>
 
           {/* Content */}
@@ -84,6 +85,7 @@ export default function AboutPage() {
             <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-cream leading-tight mb-6">
               A Legacy of Flavour Since 1998
             </h2>
+            <div className="w-16 h-px mb-6" style={{ background: 'linear-gradient(90deg, rgba(201,168,76,0.6), transparent)' }} />
             <p className="font-sans text-cream-muted font-light leading-relaxed mb-4">
               Dawat Inn was born from a simple family belief: that the most magical moments in life happen
               around a shared table. In 1998, on the storied Food Street of Old Lahore, our founders opened
@@ -104,10 +106,11 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-dawat-section">
+      <section className="relative py-28 bg-dawat-section overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent)' }} />
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <SectionLabel>Our Journey</SectionLabel>
+          <div className="text-center mb-20">
+            <SectionLabel centered>Our Journey</SectionLabel>
             <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-cream">
               Milestones That Define Us
             </h2>
@@ -115,14 +118,14 @@ export default function AboutPage() {
 
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gold/20 -translate-x-1/2 hidden md:block" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.2), rgba(201,168,76,0.2), transparent)' }} />
 
             <motion.div
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.1 }}
-              className="space-y-12"
+              className="space-y-14"
             >
               {timeline.map((item, i) => (
                 <motion.div
@@ -133,24 +136,35 @@ export default function AboutPage() {
                   }`}
                 >
                   <div className={`flex-1 ${i % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <span className="font-cormorant text-3xl font-bold text-gold">{item.year}</span>
+                    <span
+                      className="font-cormorant text-3xl font-bold"
+                      style={{ background: 'linear-gradient(135deg, #E4C46E, #C9A84C)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+                    >
+                      {item.year}
+                    </span>
                     <h3 className="font-cormorant text-xl font-semibold text-cream mt-1">{item.title}</h3>
-                    <p className="font-sans text-sm text-cream-muted font-light mt-2">{item.description}</p>
+                    <p className="font-sans text-sm text-cream-muted font-light mt-2 leading-relaxed">{item.description}</p>
                   </div>
-                  <div className="w-4 h-4 rounded-full bg-gold border-4 border-dawat-section z-10 flex-shrink-0" />
+                  {/* Glowing dot */}
+                  <div className="relative z-10 flex-shrink-0">
+                    <div className="w-4 h-4 rounded-full bg-gold border-4 border-dawat-section" />
+                    <div className="absolute inset-0 w-4 h-4 rounded-full bg-gold/30 animate-ping" />
+                  </div>
                   <div className="flex-1" />
                 </motion.div>
               ))}
             </motion.div>
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent)' }} />
       </section>
 
       {/* Values */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <SectionLabel>Our Values</SectionLabel>
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute top-40 left-0 w-[400px] h-[400px] bg-gold/[0.02] rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <div className="text-center mb-20">
+            <SectionLabel centered>Our Values</SectionLabel>
             <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-cream">
               What We Stand For
             </h2>
@@ -163,9 +177,12 @@ export default function AboutPage() {
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {values.map((value) => (
-              <motion.div key={value.title} variants={itemVariants} className="bg-dawat-card rounded-xl p-8 text-center">
-                <value.icon className="w-10 h-10 text-gold mx-auto mb-4" />
+              <motion.div key={value.title} variants={itemVariants} className="luxury-card rounded-xl p-10 text-center">
+                <div className="w-16 h-16 rounded-full border border-gold/20 flex items-center justify-center mx-auto mb-6 bg-gold/[0.05]">
+                  <value.icon className="w-7 h-7 text-gold" />
+                </div>
                 <h3 className="font-cormorant text-2xl font-semibold text-cream mb-3">{value.title}</h3>
+                <div className="w-8 h-px mx-auto mb-4" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent)' }} />
                 <p className="font-sans text-sm text-cream-muted font-light leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
@@ -174,10 +191,11 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-dawat-section">
+      <section className="relative py-28 bg-dawat-section overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent)' }} />
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <SectionLabel>Our Team</SectionLabel>
+          <div className="text-center mb-20">
+            <SectionLabel centered>Our Team</SectionLabel>
             <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-cream">
               The Faces Behind the Flavour
             </h2>
@@ -187,16 +205,26 @@ export default function AboutPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
           >
             {chefs.map((chef) => (
-              <motion.div key={chef.name} variants={itemVariants} className="text-center">
-                <div className="relative w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden ring-2 ring-gold/30 ring-offset-4 ring-offset-dawat-section">
-                  <Image src={chef.image} alt={chef.name} fill className="object-cover" sizes="160px" />
+              <motion.div key={chef.name} variants={itemVariants} className="text-center group">
+                <div className="relative w-44 h-44 mx-auto mb-6">
+                  {/* Triple rings */}
+                  <div className="absolute inset-0 rounded-full border border-gold/10" />
+                  <div className="absolute inset-1 rounded-full border border-gold/15" />
+                  <div className="absolute inset-2 rounded-full overflow-hidden">
+                    <Image src={chef.image} alt={chef.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700" sizes="160px" />
+                  </div>
                 </div>
                 <h3 className="font-cormorant text-xl font-semibold text-cream">{chef.name}</h3>
-                <p className="font-sans text-xs uppercase tracking-[0.2em] text-gold font-medium">{chef.title}</p>
-                <div className="flex justify-center gap-1 mt-2">
+                <p
+                  className="font-sans text-[10px] uppercase tracking-[0.25em] font-semibold mt-1"
+                  style={{ background: 'linear-gradient(135deg, #E4C46E, #C9A84C)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
+                >
+                  {chef.title}
+                </p>
+                <div className="flex justify-center gap-1 mt-3">
                   {Array.from({ length: 5 }).map((_, j) => (
                     <Star key={j} className="w-3 h-3 text-gold fill-gold" />
                   ))}
@@ -205,13 +233,15 @@ export default function AboutPage() {
             ))}
           </motion.div>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent)' }} />
       </section>
 
       {/* Mission */}
-      <section className="py-24">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="py-28 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gold/[0.02] rounded-full blur-3xl pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-6 text-center relative">
           <GoldDivider />
-          <blockquote className="font-cormorant text-3xl md:text-5xl font-light italic text-cream leading-snug my-12">
+          <blockquote className="font-cormorant text-3xl md:text-5xl font-light italic text-cream leading-snug my-16" style={{ textShadow: '0 2px 20px rgba(201,168,76,0.1)' }}>
             &ldquo;We don&apos;t just serve food, we serve memories&rdquo;
           </blockquote>
           <GoldDivider />

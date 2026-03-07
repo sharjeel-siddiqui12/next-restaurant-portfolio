@@ -10,30 +10,43 @@ export function VideoSection() {
 
   return (
     <>
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-36 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1920&q=60)' }}
         />
-        <div className="absolute inset-0 bg-[#0A0705]/80" />
+        <div className="absolute inset-0 bg-[#0A0705]/85" />
+        {/* Vignette */}
+        <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 150px rgba(10,7,5,0.5)' }} />
 
         <div className="relative max-w-3xl mx-auto px-6 text-center">
-          <SectionLabel>Master Class From Our Chefs</SectionLabel>
+          <SectionLabel centered>Master Class From Our Chefs</SectionLabel>
           <h2 className="font-cormorant text-4xl md:text-6xl font-semibold text-cream mb-6">
             Learn the Secrets of Mughal Cuisine
           </h2>
-          <p className="font-sans text-cream-muted font-light mb-10 max-w-xl mx-auto">
+          <p className="font-sans text-cream-muted/70 font-light mb-12 max-w-xl mx-auto leading-relaxed">
             Join our head chef in an exclusive virtual kitchen tour and discover the art of authentic spice blending.
           </p>
+
+          {/* Play button with triple ring */}
           <motion.button
             onClick={() => setOpen(true)}
-            className="mx-auto w-20 h-20 rounded-full border-2 border-gold flex items-center justify-center text-gold hover:bg-gold hover:text-dawat-bg transition-all duration-300"
-            whileHover={{ scale: 1.1 }}
+            className="relative mx-auto w-24 h-24 flex items-center justify-center"
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            animate={{ boxShadow: ['0 0 0 0 rgba(201,168,76,0.3)', '0 0 0 20px rgba(201,168,76,0)', '0 0 0 0 rgba(201,168,76,0.3)'] }}
-            transition={{ boxShadow: { repeat: Infinity, duration: 2 } }}
           >
-            <Play className="w-8 h-8 ml-1" />
+            {/* Outer pulse ring */}
+            <motion.div
+              className="absolute inset-0 rounded-full border border-gold/20"
+              animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0, 0.3] }}
+              transition={{ repeat: Infinity, duration: 2.5, ease: 'easeOut' }}
+            />
+            {/* Middle ring */}
+            <div className="absolute inset-1 rounded-full border border-gold/15" />
+            {/* Inner button */}
+            <div className="relative w-20 h-20 rounded-full border border-gold/40 flex items-center justify-center text-gold hover:bg-gold/10 transition-all duration-300">
+              <Play className="w-7 h-7 ml-1" />
+            </div>
           </motion.button>
         </div>
       </section>
@@ -45,7 +58,7 @@ export function VideoSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4"
+            className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
             onClick={() => setOpen(false)}
           >
             <motion.div
@@ -58,14 +71,14 @@ export function VideoSection() {
             >
               <button
                 onClick={() => setOpen(false)}
-                className="absolute -top-12 right-0 text-white hover:text-gold transition-colors"
+                className="absolute -top-12 right-0 text-white/60 hover:text-gold transition-colors"
               >
                 <X className="w-8 h-8" />
               </button>
               <iframe
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
                 title="Cooking masterclass"
-                className="w-full h-full rounded-lg"
+                className="w-full h-full rounded-xl border border-gold/10"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
               />
