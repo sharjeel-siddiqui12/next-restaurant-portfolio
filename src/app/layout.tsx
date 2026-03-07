@@ -18,9 +18,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Dawat Inn — Premium Pakistani Restaurant | Authentic Desi Cuisine",
+  title: "Restaurant — Premium Pakistani Restaurant | Authentic Desi Cuisine",
   description:
-    "Experience the finest Pakistani cuisine at Dawat Inn. Authentic Mughal recipes, handcrafted with tradition and served with luxury. Reserve your table today.",
+    "Experience the finest Pakistani cuisine at Restaurant. Authentic Mughal recipes, handcrafted with tradition and served with luxury. Reserve your table today.",
   keywords: [
     "Pakistani restaurant",
     "desi food",

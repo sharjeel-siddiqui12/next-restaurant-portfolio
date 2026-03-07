@@ -128,7 +128,7 @@ export default function EventsPage() {
             </h2>
             <div className="w-16 h-px mb-6" style={{ background: 'linear-gradient(90deg, rgba(201,168,76,0.6), transparent)' }} />
             <p className="font-sans text-cream-muted font-light leading-relaxed mb-8">
-              From intimate family gatherings to grand wedding celebrations, Dawat Inn offers tailored
+              From intimate family gatherings to grand wedding celebrations, Restaurant offers tailored
               packages with bespoke menus, elegant décor, and impeccable service.
             </p>
             <ul className="space-y-3.5 mb-10">

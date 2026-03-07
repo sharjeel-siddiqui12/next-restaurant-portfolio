@@ -54,7 +54,7 @@ export function ReservationCTA() {
                 </svg>
               </div>
               <h3 className="font-cormorant text-2xl text-cream mb-2">Reservation Confirmed!</h3>
-              <p className="font-sans text-sm text-cream-muted/60">We&apos;ll see you at Dawat Inn.</p>
+              <p className="font-sans text-sm text-cream-muted/60">We&apos;ll see you at Restaurant.</p>
             </motion.div>
           ) : (
             <form

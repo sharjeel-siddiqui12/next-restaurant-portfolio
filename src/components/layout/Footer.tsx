@@ -120,7 +120,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans text-dawat-text-muted/60">
-          <p>© {new Date().getFullYear()} Dawat Inn. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Restaurant. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-gold transition-colors duration-300">Privacy Policy</a>
             <span className="text-gold/20">|</span>

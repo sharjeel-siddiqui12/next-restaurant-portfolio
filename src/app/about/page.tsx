@@ -8,7 +8,7 @@ import { PageHero } from '@/components/shared/PageHero'
 import { Star, Shield, Gem, Landmark } from 'lucide-react'
 
 const timeline = [
-  { year: '1998', title: 'Founded in Karachi', description: 'Dawat Inn opened its doors on Food Street, Karachi, with a dream to revive Mughal-era recipes.' },
+  { year: '1998', title: 'Founded in Karachi', description: 'Restaurant opened its doors on Food Street, Karachi, with a dream to revive Mughal-era recipes.' },
   { year: '2005', title: 'Expanded to Second Location', description: 'Growing demand led to our second outlet in DHA, bringing fine dining to a new audience.' },
   { year: '2010', title: 'Best Restaurant Award', description: 'Recognized as the Best Pakistani Restaurant by the Karachi Food Authority and Zagat.' },
   { year: '2018', title: 'Launched Catering Services', description: 'Introduced premium wedding and event catering, bringing the Dawat experience to celebrations citywide.' },
@@ -87,19 +87,19 @@ export default function AboutPage() {
             </h2>
             <div className="w-16 h-px mb-6" style={{ background: 'linear-gradient(90deg, rgba(201,168,76,0.6), transparent)' }} />
             <p className="font-sans text-cream-muted font-light leading-relaxed mb-4">
-              Dawat Inn was born from a simple family belief: that the most magical moments in life happen
+              Restaurant was born from a simple family belief: that the most magical moments in life happen
               around a shared table. In 1998, on the storied Food Street of Karachi, our founders opened
               a small eatery with recipes inherited from their grandmother — a woman who had learned to cook
               in the kitchens of Mughal-era households.
             </p>
             <p className="font-sans text-cream-muted font-light leading-relaxed mb-4">
-              Today, Dawat Inn stands as one of Pakistan&apos;s most celebrated culinary destinations. Our
+              Today, Restaurant stands as one of Pakistan&apos;s most celebrated culinary destinations. Our
               commitment to authentic flavours, premium halal ingredients, and an unforgettable dining
               atmosphere has earned us the loyalty of food connoisseurs across the globe.
             </p>
             <p className="font-sans text-cream-muted font-light leading-relaxed">
               Every dish we serve carries the weight of history and the warmth of home — because at
-              Dawat Inn, every meal truly is a celebration.
+              Restaurant, every meal truly is a celebration.
             </p>
           </motion.div>
         </div>

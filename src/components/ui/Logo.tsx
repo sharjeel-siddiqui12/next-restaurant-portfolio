@@ -95,7 +95,7 @@ export function Logo({ variant = 'default', className = '' }: LogoProps) {
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Dawat Inn
+          Restaurant
         </span>
         <span
           className={`font-sans ${s.sub} uppercase tracking-[0.4em] text-gold/60 mt-0.5 font-medium`}

@@ -24,7 +24,7 @@ export function AboutSnippet() {
           <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=85"
-              alt="Dawat Inn Interior"
+              alt="Restaurant Interior"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -60,13 +60,13 @@ export function AboutSnippet() {
             The Best Place To Eat Is Where The Heart Loves To Cook
           </h2>
           <p className="font-sans text-cream-muted/80 font-light leading-[1.8] mb-5">
-            Founded in the heart of Karachi in 1998, Dawat Inn began as a family dream \u2014 to share the authentic
+            Founded in the heart of Karachi in 1998, Restaurant began as a family dream \u2014 to share the authentic
             Mughal-era recipes that had been passed down through generations. From our grandmother&apos;s kitchen
             to the finest dining tables, every dish carries the warmth of home and the grandeur of tradition.
           </p>
           <p className="font-sans text-cream-muted/80 font-light leading-[1.8] mb-8">
             We source only the freshest halal ingredients, grind our own spice blends daily, and slow-cook
-            our signature dishes to perfection. At Dawat Inn, we don&apos;t just serve food \u2014 we serve memories.
+            our signature dishes to perfection. At Restaurant, we don&apos;t just serve food \u2014 we serve memories.
           </p>
 
           <GoldDivider />
