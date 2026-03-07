@@ -74,7 +74,7 @@ export function Footer() {
             <ul className="space-y-5">
               <li className="flex gap-3 text-sm font-sans text-cream-muted/70">
                 <MapPin className="w-4 h-4 text-gold/60 flex-shrink-0 mt-0.5" />
-                123 Food Street, Old City Lahore, Pakistan
+                Karachi, Pakistan
               </li>
               <li className="flex gap-3 text-sm font-sans text-cream-muted/70">
                 <Phone className="w-4 h-4 text-gold/60 flex-shrink-0 mt-0.5" />
@@ -126,7 +126,7 @@ export function Footer() {
             <span className="text-gold/20">|</span>
             <a href="#" className="hover:text-gold transition-colors duration-300">Terms of Service</a>
           </div>
-          <p className="flex items-center gap-1.5">Crafted with <span className="text-crimson-light">♥</span> in Lahore</p>
+          {/* <p className="flex items-center gap-1.5">Crafted with <span className="text-crimson-light">♥</span> in Lahore</p> */}
         </div>
       </div>
     </footer>

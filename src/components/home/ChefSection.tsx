@@ -9,7 +9,7 @@ const chefs = [
   {
     name: 'Ustad Zafar Ahmed',
     title: 'Head Chef \u00b7 30 Years Experience',
-    bio: 'A culinary legend from Lahore, Ustad Zafar brings the soul of Mughal cuisine to every dish he touches.',
+    bio: 'A culinary legend from Karachi, Ustad Zafar brings the soul of Mughal cuisine to every dish he touches.',
     image: 'https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80',
   },
   {

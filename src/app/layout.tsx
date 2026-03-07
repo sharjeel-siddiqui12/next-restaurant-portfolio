@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "halal restaurant",
     "biryani",
     "karahi",
-    "Lahore",
+    "Karachi",
   ],
 };
 

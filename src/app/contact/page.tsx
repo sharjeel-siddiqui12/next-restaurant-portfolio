@@ -7,7 +7,7 @@ import { PageHero } from '@/components/shared/PageHero'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
 const contactInfo = [
-  { icon: MapPin, title: 'Address', lines: ['123 Food Street, Old City', 'Lahore, Pakistan'] },
+  { icon: MapPin, title: 'Address', lines: ['Karachi, Pakistan'] },
   { icon: Phone, title: 'Phone', lines: ['+92 300 0000000 (Reservations)', '+92 42 0000000 (Office)'] },
   { icon: Mail, title: 'Email', lines: ['info@dawatinn.com', 'reservations@dawatinn.com'] },
   { icon: Clock, title: 'Hours', lines: ['Mon\u2013Thu: 12PM\u201311PM', 'Fri: 2PM\u201312AM', 'Sat\u2013Sun: 11AM\u201312AM'] },

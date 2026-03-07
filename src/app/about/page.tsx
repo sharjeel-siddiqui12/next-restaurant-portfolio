@@ -8,9 +8,9 @@ import { PageHero } from '@/components/shared/PageHero'
 import { Star, Shield, Gem, Landmark } from 'lucide-react'
 
 const timeline = [
-  { year: '1998', title: 'Founded in Lahore', description: 'Dawat Inn opened its doors on Food Street, Old Lahore, with a dream to revive Mughal-era recipes.' },
+  { year: '1998', title: 'Founded in Karachi', description: 'Dawat Inn opened its doors on Food Street, Karachi, with a dream to revive Mughal-era recipes.' },
   { year: '2005', title: 'Expanded to Second Location', description: 'Growing demand led to our second outlet in DHA, bringing fine dining to a new audience.' },
-  { year: '2010', title: 'Best Restaurant Award', description: 'Recognized as the Best Pakistani Restaurant by the Lahore Food Authority and Zagat.' },
+  { year: '2010', title: 'Best Restaurant Award', description: 'Recognized as the Best Pakistani Restaurant by the Karachi Food Authority and Zagat.' },
   { year: '2018', title: 'Launched Catering Services', description: 'Introduced premium wedding and event catering, bringing the Dawat experience to celebrations citywide.' },
   { year: '2024', title: 'International Recognition', description: 'Featured in global food guides and visited by culinary enthusiasts from over 30 countries.' },
 ]
@@ -88,7 +88,7 @@ export default function AboutPage() {
             <div className="w-16 h-px mb-6" style={{ background: 'linear-gradient(90deg, rgba(201,168,76,0.6), transparent)' }} />
             <p className="font-sans text-cream-muted font-light leading-relaxed mb-4">
               Dawat Inn was born from a simple family belief: that the most magical moments in life happen
-              around a shared table. In 1998, on the storied Food Street of Old Lahore, our founders opened
+              around a shared table. In 1998, on the storied Food Street of Karachi, our founders opened
               a small eatery with recipes inherited from their grandmother — a woman who had learned to cook
               in the kitchens of Mughal-era households.
             </p>
