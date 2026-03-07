@@ -1,0 +1,156 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { PageHero } from '@/components/shared/PageHero'
+import { SectionLabel } from '@/components/ui/SectionLabel'
+import { events } from '@/lib/data/events'
+import { Calendar, Clock } from 'lucide-react'
+
+const badgeColors: Record<string, string> = {
+  'SOLD OUT': 'bg-crimson text-cream',
+  'LIMITED SEATS': 'bg-orange-800 text-cream',
+  'BOOK NOW': 'bg-gold text-dawat-bg',
+  'FREE ENTRY': 'bg-green-800 text-cream',
+  'SEASONAL': 'bg-dawat-card text-gold border border-gold/30',
+}
+
+const services = ['Weddings', 'Corporate Events', 'Birthday Celebrations', 'Mehendi & Dholki', 'Aqiqa & Walima']
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1 } },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const } },
+}
+
+export default function EventsPage() {
+  return (
+    <main>
+      <PageHero
+        label="Events"
+        heading="Celebrations & Gatherings"
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Events' }]}
+        image="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&q=85"
+      />
+
+      {/* Events Grid */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <SectionLabel>What&apos;s Coming</SectionLabel>
+            <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-cream">
+              Upcoming Events
+            </h2>
+          </div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {events.map((event) => (
+              <motion.div
+                key={event.id}
+                variants={itemVariants}
+                whileHover={{ y: -8 }}
+                className="group bg-dawat-card rounded-xl overflow-hidden border border-transparent hover:border-gold/30 transition-all duration-500"
+              >
+                <div className="relative aspect-[3/2] overflow-hidden">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    className="object-cover group-hover:scale-105 group-hover:brightness-110 transition-all duration-700"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  {/* Category badge */}
+                  <span className="absolute top-4 left-4 font-sans text-[10px] uppercase tracking-wider font-medium bg-gold/90 text-dawat-bg px-3 py-1 rounded-full">
+                    {event.category}
+                  </span>
+                  {/* Status badge */}
+                  <span className={`absolute top-4 right-4 font-sans text-[10px] uppercase tracking-wider font-medium px-3 py-1 rounded-full ${badgeColors[event.badge] || 'bg-dawat-card text-cream'}`}>
+                    {event.badge}
+                  </span>
+                </div>
+
+                {/* Date bar */}
+                <div className="bg-gold/10 px-5 py-2.5 flex items-center gap-4">
+                  <span className="flex items-center gap-1.5 font-sans text-xs text-gold">
+                    <Calendar className="w-3.5 h-3.5" /> {event.date}
+                  </span>
+                  <span className="flex items-center gap-1.5 font-sans text-xs text-gold">
+                    <Clock className="w-3.5 h-3.5" /> {event.time}
+                  </span>
+                </div>
+
+                <div className="p-5">
+                  <h3 className="font-cormorant text-2xl font-semibold text-cream mb-2">{event.title}</h3>
+                  <p className="font-sans text-sm text-cream-muted font-light leading-relaxed mb-4">{event.description}</p>
+                  <button className="font-sans text-xs uppercase tracking-[0.15em] font-medium text-gold border border-gold/40 px-5 py-2 rounded-full hover:bg-gold hover:text-dawat-bg transition-all duration-300">
+                    Register Interest
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Private Events */}
+      <section className="py-24 bg-dawat-section">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <SectionLabel>Private & Corporate</SectionLabel>
+            <h2 className="font-cormorant text-4xl md:text-5xl font-semibold text-cream leading-tight mb-6">
+              Host Your Special Occasion With Us
+            </h2>
+            <p className="font-sans text-cream-muted font-light leading-relaxed mb-8">
+              From intimate family gatherings to grand wedding celebrations, Dawat Inn offers tailored
+              packages with bespoke menus, elegant décor, and impeccable service.
+            </p>
+            <ul className="space-y-3 mb-8">
+              {services.map((s) => (
+                <li key={s} className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-gold" />
+                  <span className="font-sans text-cream-muted">{s}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/contact"
+              className="inline-block font-sans uppercase tracking-[0.15em] text-xs font-medium bg-gold text-dawat-bg px-8 py-3.5 rounded-full hover:bg-gold-light transition-colors"
+            >
+              Plan Your Event
+            </a>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative aspect-[4/3] rounded-xl overflow-hidden"
+          >
+            <Image
+              src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=85"
+              alt="Private events"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  )
+}
