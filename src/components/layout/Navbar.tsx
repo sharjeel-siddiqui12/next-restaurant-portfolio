@@ -77,7 +77,7 @@ export function Navbar() {
           <div className="flex items-center gap-5">
             <Link
               href="/contact"
-              className="hidden md:block btn-luxury-outline font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-7 py-3 rounded-full"
+              className="hidden md:block btn-luxury-outline px-7 py-3 rounded-full"
             >
               <span>Reserve a Table</span>
             </Link>
@@ -152,7 +152,7 @@ export function Navbar() {
               >
                 <Link
                   href="/contact"
-                  className="btn-luxury font-sans uppercase tracking-[0.2em] text-[11px] font-semibold px-10 py-4 rounded-full inline-block"
+                  className="btn-luxury px-10 py-4 rounded-full inline-block"
                 >
                   <span>Reserve a Table</span>
                 </Link>

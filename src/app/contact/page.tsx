@@ -258,7 +258,7 @@ export default function ContactPage() {
                   {/* Submit */}
                   <button
                     type="submit"
-                    className="btn-luxury w-full font-sans font-semibold text-[11px] uppercase tracking-[0.2em] py-4 rounded-lg group"
+                    className="btn-luxury w-full py-4 rounded-lg group"
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
                       Send Message

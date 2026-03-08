@@ -74,13 +74,13 @@ export function AboutSnippet() {
           <div className="flex flex-wrap gap-4">
             <Link
               href="/about"
-              className="btn-luxury font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-10 py-4 rounded-full inline-block"
+              className="btn-luxury px-10 py-4 rounded-full inline-block"
             >
               <span>Our Story</span>
             </Link>
             <Link
               href="/menu"
-              className="btn-luxury-outline font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-10 py-4 rounded-full inline-block"
+              className="btn-luxury-outline px-10 py-4 rounded-full inline-block"
             >
               <span>View Menu</span>
             </Link>

@@ -29,7 +29,7 @@ export default function MenuPage() {
             <button
               key={cat.id}
               onClick={() => setActive(cat.id)}
-              className={`relative whitespace-nowrap font-sans text-[10px] uppercase tracking-[0.2em] font-semibold px-6 py-2.5 rounded-full transition-all duration-300 ${
+              className={`relative whitespace-nowrap font-sans text-[11px] uppercase tracking-[0.18em] font-semibold px-6 py-2.5 rounded-full transition-all duration-300 ${
                 active === cat.id
                   ? 'text-dawat-bg'
                   : 'text-cream-muted hover:text-cream border border-gold/[0.12] hover:border-gold/30'
@@ -83,7 +83,7 @@ export default function MenuPage() {
           </p>
           <Link
             href="/contact"
-            className="btn-luxury font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-10 py-4 rounded-full inline-block"
+            className="btn-luxury px-10 py-4 rounded-full inline-block"
           >
             <span className="relative z-10">Enquire Now</span>
           </Link>

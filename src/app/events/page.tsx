@@ -101,7 +101,7 @@ export default function EventsPage() {
                 <div className="p-6">
                   <h3 className="font-cormorant text-2xl font-semibold text-cream mb-2">{event.title}</h3>
                   <p className="font-sans text-sm text-cream-muted font-light leading-relaxed mb-5">{event.description}</p>
-                  <button className="btn-luxury-outline font-sans text-[10px] uppercase tracking-[0.2em] font-semibold px-6 py-2.5 rounded-full">
+                  <button className="btn-luxury-outline px-6 py-3 rounded-full">
                     <span className="relative z-10">Register Interest</span>
                   </button>
                 </div>
@@ -141,7 +141,7 @@ export default function EventsPage() {
             </ul>
             <a
               href="/contact"
-              className="btn-luxury font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-10 py-4 rounded-full inline-block"
+              className="btn-luxury px-10 py-4 rounded-full inline-block"
             >
               <span className="relative z-10">Plan Your Event</span>
             </a>

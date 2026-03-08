@@ -108,7 +108,7 @@ export function Footer() {
               />
               <button
                 type="submit"
-                className="w-full btn-luxury font-sans font-semibold text-xs uppercase tracking-[0.2em] py-3.5 rounded-lg"
+                className="w-full btn-luxury py-3.5 rounded-lg"
               >
                 <span>Subscribe</span>
               </button>

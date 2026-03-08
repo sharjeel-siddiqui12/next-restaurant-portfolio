@@ -115,7 +115,7 @@ function DishCard({ dish }: { dish: typeof dishes[0] }) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0705]/95 via-[#0A0705]/30 to-transparent" />
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-          <span className="btn-luxury font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-6 py-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+          <span className="btn-luxury px-6 py-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
             <span>Order Now</span>
           </span>
         </div>

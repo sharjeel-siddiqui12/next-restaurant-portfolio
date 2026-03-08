@@ -158,6 +158,11 @@ html {
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
+  font-family: var(--font-dm-sans);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
 }
 .btn-luxury::before {
   content: '';
@@ -169,6 +174,9 @@ html {
 }
 .btn-luxury:hover::before {
   opacity: 1;
+}
+.btn-luxury:hover {
+  box-shadow: 0 4px 24px rgba(201, 168, 76, 0.25);
 }
 .btn-luxury span {
   position: relative;
@@ -182,6 +190,11 @@ html {
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
+  font-family: var(--font-dm-sans);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
 }
 .btn-luxury-outline::before {
   content: '';
@@ -198,6 +211,7 @@ html {
 .btn-luxury-outline:hover {
   color: #0A0705;
   border-color: #C9A84C;
+  box-shadow: 0 4px 24px rgba(201, 168, 76, 0.15);
 }
 .btn-luxury-outline span {
   position: relative;

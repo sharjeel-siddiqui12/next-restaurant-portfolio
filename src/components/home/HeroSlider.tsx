@@ -131,13 +131,13 @@ export function HeroSlider() {
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
               <Link
                 href="/menu"
-                className="btn-luxury font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-10 py-4 rounded-full inline-block"
+                className="btn-luxury px-10 py-4 rounded-full inline-block"
               >
                 <span>View Menu</span>
               </Link>
               <Link
                 href="/contact"
-                className="btn-luxury-outline font-sans uppercase tracking-[0.2em] text-[10px] font-semibold px-10 py-4 rounded-full inline-block"
+                className="btn-luxury-outline px-10 py-4 rounded-full inline-block"
               >
                 <span>Reserve a Table</span>
               </Link>

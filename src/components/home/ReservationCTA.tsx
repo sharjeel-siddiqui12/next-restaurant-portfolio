@@ -186,7 +186,7 @@ export function ReservationCTA() {
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full btn-luxury font-sans font-semibold text-[11px] uppercase tracking-[0.2em] py-4 rounded-lg group"
+                  className="w-full btn-luxury py-4 rounded-lg group"
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     Reserve Your Table
