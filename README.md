@@ -40,17 +40,17 @@
 
 ![Chefs & Stats](screenshots/4.png)
 
-### Homepage — Video Section & Testimonials
-
-> Parallax background video CTA with play button modal, plus an auto-scrolling horizontal testimonial ticker.
-
-![Video & Testimonials](screenshots/5.png)
-
 ### Homepage — Reservation Form
 
 > Luxury reservation form with split layout — hero image on the left, form fields with custom-styled date/time/guest pickers on the right.
 
-![Reservation CTA](screenshots/6.png)
+![Reservation CTA](screenshots/5.png)
+
+### Footer
+
+> Full-width footer with logo, quick links, operating hours, newsletter subscription input, social icons, and gold divider accents.
+
+![Footer](screenshots/6.png)
 
 ### About Page
 
