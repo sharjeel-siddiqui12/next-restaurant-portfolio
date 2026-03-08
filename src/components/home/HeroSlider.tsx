@@ -8,7 +8,7 @@ import { ChevronDown } from 'lucide-react'
 
 const slides = [
   {
-    image: 'https://images.unsplash.com/photo-1563379091339-03246963d96c?w=1920&q=90',
+    image: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     label: 'Est. 1998 \u00b7 Karachi, Pakistan',
     heading: 'A Feast Fit\nFor Royalty',
     sub: 'Explore our signature royal dining experience \u2014 where centuries-old recipes meet contemporary luxury.',

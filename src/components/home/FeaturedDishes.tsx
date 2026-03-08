@@ -5,11 +5,11 @@ import Image from 'next/image'
 import { SectionLabel } from '@/components/ui/SectionLabel'
 
 const dishes = [
-  { name: 'Dum Pukht Biryani', category: "CHEF'S PICK", price: 'PKR 850', image: 'https://images.unsplash.com/photo-1563379091339-03246963d96c?w=800&q=85' },
+  { name: 'Dum Pukht Biryani', category: "CHEF'S PICK", price: 'PKR 850', image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
   { name: 'Nihari Gosht', category: 'SIGNATURE', price: 'PKR 650', image: 'https://images.unsplash.com/photo-1596797038530-2c107229654b?w=800&q=85' },
   { name: 'Seekh Kebab Platter', category: 'BBQ', price: 'PKR 1,200', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&q=85' },
-  { name: 'Karahi Gosht', category: 'SIGNATURE', price: 'PKR 950', image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&q=85' },
-  { name: 'Haleem Special', category: 'SEASONAL', price: 'PKR 450', image: 'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=800&q=85' },
+  { name: 'Karahi Gosht', category: 'SIGNATURE', price: 'PKR 950', image: 'https://images.unsplash.com/photo-1603496987351-f84a3ba5ec85?q=80&w=876&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { name: 'Haleem Special', category: 'SEASONAL', price: 'PKR 450', image: 'https://images.unsplash.com/photo-1512010151537-2cf5c638ad51?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 ]
 
 const extraItems = [

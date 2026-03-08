@@ -26,8 +26,8 @@ export const menuItems: MenuItem[] = [
   { id: 3, name: 'Samosa Chaat', category: 'starters', price: 200, description: 'Crispy samosas topped with chickpeas, yogurt and chutneys', tags: ['vegetarian'], image: 'https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?w=400&q=80' },
   { id: 17, name: 'Pakora Platter', category: 'starters', price: 300, description: 'Assorted vegetable fritters with mint and tamarind chutneys', tags: ['vegetarian', 'spicy'], image: 'https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80' },
   // Biryani
-  { id: 4, name: 'Dum Pukht Biryani', category: 'biryani', price: 850, description: 'Slow-cooked aromatic basmati with tender mutton & whole spices', tags: ['bestseller', 'chefs-pick'], image: 'https://images.unsplash.com/photo-1563379091339-03246963d96c?w=400&q=80' },
-  { id: 5, name: 'Chicken Biryani', category: 'biryani', price: 650, description: 'Fragrant rice layered with spiced chicken & caramelized onions', tags: ['bestseller'], image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400&q=80' },
+  { id: 4, name: 'Dum Pukht Biryani', category: 'biryani', price: 850, description: 'Slow-cooked aromatic basmati with tender mutton & whole spices', tags: ['bestseller', 'chefs-pick'], image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { id: 5, name: 'Chicken Biryani', category: 'biryani', price: 650, description: 'Fragrant rice layered with spiced chicken & caramelized onions', tags: ['bestseller'], image: 'https://images.unsplash.com/photo-1697155406055-2db32d47ca07?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
   { id: 6, name: 'Prawn Biryani', category: 'biryani', price: 950, description: 'Coastal-style biryani with jumbo prawns & aromatic herbs', tags: ['spicy'], image: 'https://images.unsplash.com/photo-1642821373181-696a54913e93?w=400&q=80' },
   // BBQ
   { id: 7, name: 'Seekh Kebab', category: 'bbq', price: 750, description: 'Minced lamb with herbs grilled on skewers over live coals', tags: ['chefs-pick'], image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80' },
@@ -43,7 +43,7 @@ export const menuItems: MenuItem[] = [
   { id: 21, name: 'Garlic Naan', category: 'breads', price: 100, description: 'Buttery naan brushed with roasted garlic & fresh herbs', tags: ['bestseller'], image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&q=80' },
   { id: 22, name: 'Laccha Paratha', category: 'breads', price: 80, description: 'Layered flaky flatbread with butter, baked to golden perfection', tags: [], image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&q=80' },
   // Desserts
-  { id: 12, name: 'Gulab Jamun', category: 'desserts', price: 200, description: 'Soft milk-solid dumplings soaked in rose-cardamom syrup', tags: ['vegetarian'], image: 'https://images.unsplash.com/photo-1666190094762-2e05489ccfea?w=400&q=80' },
+  { id: 12, name: 'Gulab Jamun', category: 'desserts', price: 200, description: 'Soft milk-solid dumplings soaked in rose-cardamom syrup', tags: ['vegetarian'], image: 'https://images.unsplash.com/photo-1666190092159-3171cf0fbb12?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
   { id: 13, name: 'Shahi Tukray', category: 'desserts', price: 280, description: 'Royal bread pudding with saffron-infused cream & pistachios', tags: ['chefs-pick'], image: 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&q=80' },
   { id: 14, name: 'Kheer', category: 'desserts', price: 220, description: 'Traditional rice pudding slow-cooked with cardamom & dry fruits', tags: ['vegetarian'], image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&q=80' },
   // Beverages

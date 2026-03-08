@@ -111,85 +111,165 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="luxury-card rounded-2xl p-8 md:p-10"
+            className="luxury-card rounded-2xl p-8 md:p-10 relative overflow-hidden"
           >
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-16"
-              >
-                <div className="w-16 h-16 rounded-full border border-green-400/30 flex items-center justify-center mx-auto mb-4 bg-green-800/10">
-                  <svg className="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="font-cormorant text-2xl text-cream mb-2">Message Sent!</h3>
-                <p className="font-sans text-sm text-cream-muted font-light">Thank you for reaching out. We&apos;ll get back to you within 24 hours.</p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                <div>
-                  <input
-                    name="name"
-                    type="text"
-                    placeholder="Full Name"
-                    className={`w-full bg-transparent border-b ${errors.name ? 'border-crimson-light' : 'border-gold/10'} px-0 py-3.5 text-sm font-sans text-cream placeholder:text-cream-muted/40 focus:border-gold/50 focus:outline-none transition-colors`}
-                    onChange={() => setErrors((e) => ({ ...e, name: false }))}
-                  />
-                  {errors.name && <p className="text-crimson-light text-xs mt-1 font-sans">Name is required</p>}
-                </div>
-                <div>
-                  <input
-                    name="email"
-                    type="email"
-                    placeholder="Email Address"
-                    className={`w-full bg-transparent border-b ${errors.email ? 'border-crimson-light' : 'border-gold/10'} px-0 py-3.5 text-sm font-sans text-cream placeholder:text-cream-muted/40 focus:border-gold/50 focus:outline-none transition-colors`}
-                    onChange={() => setErrors((e) => ({ ...e, email: false }))}
-                  />
-                  {errors.email && <p className="text-crimson-light text-xs mt-1 font-sans">Email is required</p>}
-                </div>
-                <input
-                  name="phone"
-                  type="tel"
-                  placeholder="Phone Number"
-                  className="w-full bg-transparent border-b border-gold/10 px-0 py-3.5 text-sm font-sans text-cream placeholder:text-cream-muted/40 focus:border-gold/50 focus:outline-none transition-colors"
-                />
-                <input
-                  name="subject"
-                  type="text"
-                  placeholder="Subject"
-                  className="w-full bg-transparent border-b border-gold/10 px-0 py-3.5 text-sm font-sans text-cream placeholder:text-cream-muted/40 focus:border-gold/50 focus:outline-none transition-colors"
-                />
-                <div>
-                  <textarea
-                    name="message"
-                    placeholder="Your Message"
-                    rows={4}
-                    className={`w-full bg-transparent border-b ${errors.message ? 'border-crimson-light' : 'border-gold/10'} px-0 py-3.5 text-sm font-sans text-cream placeholder:text-cream-muted/40 focus:border-gold/50 focus:outline-none transition-colors resize-none`}
-                    onChange={() => setErrors((e) => ({ ...e, message: false }))}
-                  />
-                  {errors.message && <p className="text-crimson-light text-xs mt-1 font-sans">Message is required</p>}
-                </div>
-                <select
-                  name="source"
-                  className="w-full bg-transparent border-b border-gold/10 px-0 py-3.5 text-sm font-sans text-cream focus:border-gold/50 focus:outline-none transition-colors"
-                  defaultValue=""
+            {/* Decorative corner accents */}
+            <div className="absolute top-0 left-0 w-16 h-16 pointer-events-none">
+              <div className="absolute top-0 left-0 w-full h-px" style={{ background: 'linear-gradient(90deg, rgba(201,168,76,0.4), transparent)' }} />
+              <div className="absolute top-0 left-0 h-full w-px" style={{ background: 'linear-gradient(180deg, rgba(201,168,76,0.4), transparent)' }} />
+            </div>
+            <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none">
+              <div className="absolute bottom-0 right-0 w-full h-px" style={{ background: 'linear-gradient(270deg, rgba(201,168,76,0.4), transparent)' }} />
+              <div className="absolute bottom-0 right-0 h-full w-px" style={{ background: 'linear-gradient(0deg, rgba(201,168,76,0.4), transparent)' }} />
+            </div>
+
+            <AnimatePresence mode="wait">
+              {submitted ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-center py-20"
                 >
-                  <option value="" disabled className="bg-dawat-bg text-cream-muted">How Did You Hear About Us?</option>
-                  <option value="google" className="bg-dawat-bg">Google</option>
-                  <option value="social" className="bg-dawat-bg">Social Media</option>
-                  <option value="friend" className="bg-dawat-bg">Friend / Family</option>
-                  <option value="other" className="bg-dawat-bg">Other</option>
-                </select>
-                <button
-                  type="submit"
-                  className="btn-luxury w-full font-sans font-semibold text-[10px] uppercase tracking-[0.2em] py-4 rounded-lg mt-4"
+                  <div className="w-20 h-20 rounded-full border border-gold/30 flex items-center justify-center mx-auto mb-6" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%)' }}>
+                    <svg className="w-9 h-9 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="font-cormorant text-3xl text-cream mb-3">Message Sent!</h3>
+                  <p className="font-sans text-sm text-cream-muted font-light max-w-xs mx-auto leading-relaxed">Thank you for reaching out. We&apos;ll get back to you within 24 hours.</p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="mt-8 font-sans text-xs text-gold/60 hover:text-gold transition-colors uppercase tracking-[0.15em]"
+                  >
+                    Send Another Message
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.form
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  noValidate
                 >
-                  <span className="relative z-10">Send Message</span>
-                </button>
-              </form>
-            )}
+                  {/* Form header */}
+                  <div className="mb-2">
+                    <h3 className="font-cormorant text-2xl md:text-3xl text-cream font-semibold mb-1">Send Us a Message</h3>
+                    <p className="font-sans text-sm text-cream-muted/60 font-light">Fields marked with <span className="text-gold">*</span> are required</p>
+                  </div>
+
+                  {/* Name & Email row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label htmlFor="contact-name" className="font-sans text-xs text-cream-muted uppercase tracking-[0.12em]">
+                        Full Name <span className="text-gold">*</span>
+                      </label>
+                      <input
+                        id="contact-name"
+                        name="name"
+                        type="text"
+                        placeholder="John Doe"
+                        className={`w-full bg-dawat-bg/60 border ${errors.name ? 'border-crimson-light' : 'border-gold/10 focus:border-gold/40'} rounded-lg px-4 py-3 text-sm font-sans text-cream placeholder:text-cream-muted/30 focus:outline-none focus:ring-1 ${errors.name ? 'focus:ring-crimson-light/30' : 'focus:ring-gold/20'} transition-all duration-300`}
+                        onChange={() => setErrors((e) => ({ ...e, name: false }))}
+                      />
+                      {errors.name && <p className="text-crimson-light text-xs font-sans flex items-center gap-1"><span className="inline-block w-1 h-1 rounded-full bg-crimson-light" />Name is required</p>}
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="contact-email" className="font-sans text-xs text-cream-muted uppercase tracking-[0.12em]">
+                        Email <span className="text-gold">*</span>
+                      </label>
+                      <input
+                        id="contact-email"
+                        name="email"
+                        type="email"
+                        placeholder="john@example.com"
+                        className={`w-full bg-dawat-bg/60 border ${errors.email ? 'border-crimson-light' : 'border-gold/10 focus:border-gold/40'} rounded-lg px-4 py-3 text-sm font-sans text-cream placeholder:text-cream-muted/30 focus:outline-none focus:ring-1 ${errors.email ? 'focus:ring-crimson-light/30' : 'focus:ring-gold/20'} transition-all duration-300`}
+                        onChange={() => setErrors((e) => ({ ...e, email: false }))}
+                      />
+                      {errors.email && <p className="text-crimson-light text-xs font-sans flex items-center gap-1"><span className="inline-block w-1 h-1 rounded-full bg-crimson-light" />Email is required</p>}
+                    </div>
+                  </div>
+
+                  {/* Phone & Subject row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div className="space-y-1.5">
+                      <label htmlFor="contact-phone" className="font-sans text-xs text-cream-muted uppercase tracking-[0.12em]">Phone</label>
+                      <input
+                        id="contact-phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="+92 300 0000000"
+                        className="w-full bg-dawat-bg/60 border border-gold/10 focus:border-gold/40 rounded-lg px-4 py-3 text-sm font-sans text-cream placeholder:text-cream-muted/30 focus:outline-none focus:ring-1 focus:ring-gold/20 transition-all duration-300"
+                      />
+                    </div>
+                    <div className="space-y-1.5">
+                      <label htmlFor="contact-subject" className="font-sans text-xs text-cream-muted uppercase tracking-[0.12em]">Subject</label>
+                      <input
+                        id="contact-subject"
+                        name="subject"
+                        type="text"
+                        placeholder="General Inquiry"
+                        className="w-full bg-dawat-bg/60 border border-gold/10 focus:border-gold/40 rounded-lg px-4 py-3 text-sm font-sans text-cream placeholder:text-cream-muted/30 focus:outline-none focus:ring-1 focus:ring-gold/20 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Message */}
+                  <div className="space-y-1.5">
+                    <label htmlFor="contact-message" className="font-sans text-xs text-cream-muted uppercase tracking-[0.12em]">
+                      Message <span className="text-gold">*</span>
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      name="message"
+                      placeholder="Tell us how we can help you..."
+                      rows={5}
+                      className={`w-full bg-dawat-bg/60 border ${errors.message ? 'border-crimson-light' : 'border-gold/10 focus:border-gold/40'} rounded-lg px-4 py-3 text-sm font-sans text-cream placeholder:text-cream-muted/30 focus:outline-none focus:ring-1 ${errors.message ? 'focus:ring-crimson-light/30' : 'focus:ring-gold/20'} transition-all duration-300 resize-none`}
+                      onChange={() => setErrors((e) => ({ ...e, message: false }))}
+                    />
+                    {errors.message && <p className="text-crimson-light text-xs font-sans flex items-center gap-1"><span className="inline-block w-1 h-1 rounded-full bg-crimson-light" />Message is required</p>}
+                  </div>
+
+                  {/* Source dropdown */}
+                  <div className="space-y-1.5">
+                    <label htmlFor="contact-source" className="font-sans text-xs text-cream-muted uppercase tracking-[0.12em]">How Did You Hear About Us?</label>
+                    <select
+                      id="contact-source"
+                      name="source"
+                      className="w-full bg-dawat-bg/60 border border-gold/10 focus:border-gold/40 rounded-lg px-4 py-3 text-sm font-sans text-cream focus:outline-none focus:ring-1 focus:ring-gold/20 transition-all duration-300 appearance-none"
+                      defaultValue=""
+                      style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23C9A84C' viewBox='0 0 16 16'%3E%3Cpath d='M4.646 6.646a.5.5 0 0 1 .708 0L8 9.293l2.646-2.647a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+                    >
+                      <option value="" disabled className="bg-dawat-bg text-cream-muted">Select an option</option>
+                      <option value="google" className="bg-dawat-bg">Google</option>
+                      <option value="social" className="bg-dawat-bg">Social Media</option>
+                      <option value="friend" className="bg-dawat-bg">Friend / Family</option>
+                      <option value="other" className="bg-dawat-bg">Other</option>
+                    </select>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.12), transparent)' }} />
+
+                  {/* Submit */}
+                  <button
+                    type="submit"
+                    className="btn-luxury w-full font-sans font-semibold text-[11px] uppercase tracking-[0.2em] py-4 rounded-lg group"
+                  >
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      Send Message
+                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </span>
+                  </button>
+                </motion.form>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
       </section>
